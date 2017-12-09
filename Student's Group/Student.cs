@@ -6,7 +6,7 @@ namespace Student_s_Group
 {
     public class Student
     {
-        //test
+        //test this GIT
         private readonly List<Mark> Marks = new List<Mark>();
         public string FirstName { get; set; }
         public string LastName { get; set; }
