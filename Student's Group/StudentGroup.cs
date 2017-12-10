@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Student_s_Group
 {
-    class StudentGroup
+    public class StudentGroup
     {
         private readonly List<Student> Students = new List<Student>();    
         
@@ -15,7 +15,7 @@ namespace Student_s_Group
 
         public void AddStudent(Student student)
         {
-            this.Students.Add(student);
+            Students.Add(student);
         }
 
         public void RemoveStudent(Student student)
@@ -31,6 +31,7 @@ namespace Student_s_Group
                 st.ShowMarks();
             }
         }
+
         //Реализация через индексаторы
         public void ShowStudentsIndex(int index1)
         {

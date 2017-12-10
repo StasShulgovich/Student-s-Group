@@ -14,7 +14,7 @@ namespace Student_s_Group
         
         public void AddMark(Mark mark)
         {
-            this.Marks.Add(mark);
+            Marks.Add(mark);
         }       
 
         public void ShowMarks()
@@ -25,13 +25,13 @@ namespace Student_s_Group
             }
             Console.WriteLine();
         }
+
         public void SortMarks(Student student)
         {
             Marks.Sort();
             Marks.Reverse();
             Console.Write(student.FirstName + " " + student.LastName + " ");
-            Marks.ForEach(Marks => Console.Write(Marks.LectureName + " " + Marks.MarkNumber
-                + " "));
+            Marks.ForEach(Mark => Console.Write(Mark.LectureName + " " + Mark.MarkNumber + " "));
             Console.WriteLine();
         }
 
@@ -41,7 +41,7 @@ namespace Student_s_Group
             foreach (var mark in Marks)
             {
                 Console.WriteLine();
-                 return " Min mark is " + mark.MarkNumber;
+                return " Min mark is " + mark.MarkNumber;
             }
             return "exception"; // вот эта штука не оч как-то
         }
@@ -67,32 +67,34 @@ namespace Student_s_Group
                 x += mark.MarkNumber;
                 y += 1;
             }
-            return " Average Mark is " + (double)x/y;
+            return " Average Mark is " + (double) x / y;
         }
 
         public override string ToString()
         {
-            return this.FirstName + " " + this.LastName + this.MinMark() + this.MaxMark() + this.AverageMark();
+            return FirstName + " " + LastName + MinMark() + MaxMark() + AverageMark();
         }
 
         public override bool Equals(object obj)
         {
-            if (obj.GetType() != this.GetType()) return false;
+            if (obj.GetType() != GetType()) return false;
             Student student = (Student)obj;
-            return (this.FirstName == student.FirstName && this.LastName == student.LastName);
+            return (FirstName == student.FirstName && LastName == student.LastName);
         }
     }
+
     public struct Mark : IComparable<Mark>
     {
         public string LectureName { get; }
         public DateTime Date { get; }
         public int MarkNumber { get; }        
 
-        public Mark(string LectureName, DateTime Date, int MarkNumber) : this()
+        public Mark(string lectureName, DateTime date, int markNumber) : this()
         {
-            this.LectureName = LectureName;
-            this.Date = Date;
-            this.MarkNumber = MarkNumber;
+            LectureName = lectureName;
+            Date = date;
+            MarkNumber = markNumber;
+
         }       
         //Сравнение по оценкам
         public int CompareTo(Mark other)

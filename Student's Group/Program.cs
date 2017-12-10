@@ -58,6 +58,7 @@ namespace Student_s_Group
             st3.DOB = dateDOB1;
             #endregion
             #region Student's Marks
+            //it's better to make double FOR cycle to create test data
             Mark mark1 = new Mark("Math", datemark1, 5);
             st1.AddMark(mark1);
             Mark mark2 = new Mark("English", datemark2, 9);
